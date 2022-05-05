@@ -1,0 +1,18 @@
+{
+  "name": "gandi-ddns",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "moment": "^2.29.1",
+    "node-fetch": "^3.2.1",
+    "public-ip": "^5.0.0",
+    "winston": "^3.6.0"
+  }
+}
