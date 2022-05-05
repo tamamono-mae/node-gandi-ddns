@@ -15,29 +15,29 @@ import moment from 'moment';
 //Define global constants
 const lvStrTransform = {
 	emerg:  ' EMGC ',
-  alert:  ' ALRT ',
-  crit:   ' CRIT ',
-  error:  ' ERR  ',
-  warn:   ' WARN ',
-  notice: ' NOTE ',
-  info:   ' INFO ',
-  debug:  ' DBUG '
+	alert:  ' ALRT ',
+	crit:   ' CRIT ',
+	error:  ' ERR  ',
+	warn:   ' WARN ',
+	notice: ' NOTE ',
+	info:   ' INFO ',
+	debug:  ' DBUG '
 }
 
 //Setting modules
 const dnsPromises = dns.promises;
 const logger = winston.createLogger({
-  level: 'info',
-  format: format.printf(info => `[${moment().format('YY-MM-DD:HH:mm:ss')}][${lvStrTransform[info.level]}] ${info.message}`),
-  transports: [
-    //
-    // - Write all logs with importance level of `error` or less to `error.log`
-    // - Write all logs with importance level of `info` or less to `combined.log`
-    //
+	level: 'info',
+	format: format.printf(info => `[${moment().format('YY-MM-DD:HH:mm:ss')}][${lvStrTransform[info.level]}] ${info.message}`),
+	transports: [
+		//
+		// - Write all logs with importance level of `error` or less to `error.log`
+		// - Write all logs with importance level of `info` or less to `combined.log`
+		//
 		new winston.transports.Console(),
-    new winston.transports.File({ filename: './logs/error.log', level: 'error' }),
-    new winston.transports.File({ filename: './logs/combined.log' }),
-  ],
+		new winston.transports.File({ filename: './logs/error.log', level: 'error' }),
+		new winston.transports.File({ filename: './logs/combined.log' }),
+	],
 });
 //Importing config
 const config = require(__dirname + '/config.json');
